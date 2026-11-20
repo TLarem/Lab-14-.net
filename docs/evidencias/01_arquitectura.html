@@ -1,0 +1,37 @@
+<!doctype html><meta charset="utf-8"><style>body{margin:36px;font:22px Segoe UI;background:#fff;color:#172434}h1{font-size:30px;color:#126a8e}h2{font-size:23px}pre{white-space:pre-wrap;word-break:break-word;font:18px Consolas;background:#f3f6f8;padding:20px;border:1px solid #ccd5de}small{color:#53687b}</style><h1>Arquitectura hexagonal - cuatro capas</h1><small>Lab10-LukasMelgar | Evidencia del proyecto y resultados reales</small><pre>Lab10-LukasMelgar
+  Lab10-LukasMelgar.Api\Lab10-LukasMelgar.Api.csproj
+  Lab10-LukasMelgar.Application\Lab10-LukasMelgar.Application.csproj
+  Lab10-LukasMelgar.Domain\Lab10-LukasMelgar.Domain.csproj
+  Lab10-LukasMelgar.Infrastructure\Lab10-LukasMelgar.Infrastructure.csproj</pre><h2>Lab10-LukasMelgar.Api/Program.cs</h2><pre>using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Lab10_LukasMelgar.Api.Configuration;
+using Lab10_LukasMelgar.Api.Middleware;
+using Lab10_LukasMelgar.Infrastructure.Configuration;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddApplicationServices(builder.Configuration);
+
+var app = builder.Build();
+
+app.UseMiddleware&lt;ExceptionMiddleware&gt;();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(c =&gt;
+    {
+        c.SwaggerEndpoint(&quot;/swagger/v1/swagger.json&quot;, &quot;Ticketera API v1&quot;);
+    });
+}
+
+app.UseHttpsRedirection();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
+</pre>

@@ -1,0 +1,62 @@
+<!doctype html><meta charset="utf-8"><style>body{margin:36px;font:22px Segoe UI;background:#fff;color:#172434}h1{font-size:30px;color:#126a8e}h2{font-size:23px}pre{white-space:pre-wrap;word-break:break-word;font:18px Consolas;background:#f3f6f8;padding:20px;border:1px solid #ccd5de}small{color:#53687b}</style><h1>JWT y Swagger - configuracion centralizada</h1><small>Lab10-LukasMelgar | Evidencia del proyecto y resultados reales</small><pre>        var jwt = configuration.GetSection(&quot;Jwt&quot;).Get&lt;JwtSettings&gt;()
+            ?? throw new InvalidOperationException(&quot;Falta la configuraci?n Jwt.&quot;);
+        var secret = jwt.Secret;
+        var issuer = jwt.Issuer;
+        var audience = jwt.Audience;
+
+        services.AddAuthentication(options =&gt;
+        {
+            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        })
+        .AddJwtBearer(options =&gt;
+        {
+            options.RequireHttpsMetadata = false;
+            options.SaveToken = true;
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secret)),
+                ValidateIssuer = true,
+                ValidIssuer = issuer,
+                ValidateAudience = true,
+                ValidAudience = audience,
+                ValidateLifetime = true
+            };
+        });
+
+        services.AddAuthorization();
+
+        services.AddEndpointsApiExplorer();
+        services.AddSwaggerGen(c =&gt;
+        {
+            c.SwaggerDoc(&quot;v1&quot;, new OpenApiInfo
+            {
+                Title = &quot;Lab10-LukasMelgar - Ticketera API&quot;,
+                Version = &quot;v1&quot;,
+                Description = &quot;API de tickets con arquitectura hexagonal, PostgreSQL y JWT.&quot;
+            });
+            var securityScheme = new OpenApiSecurityScheme
+            {
+                Name = &quot;Authorization&quot;,
+                Type = SecuritySchemeType.Http,
+                Scheme = &quot;Bearer&quot;,
+                BearerFormat = &quot;JWT&quot;,
+                In = ParameterLocation.Header,
+                Description = &quot;Ingresa tu token JWT en formato Bearer&quot;
+            };
+
+            c.AddSecurityDefinition(&quot;Bearer&quot;, securityScheme);
+            c.AddSecurityRequirement(doc =&gt; new OpenApiSecurityRequirement
+            {
+                {
+                    new OpenApiSecuritySchemeReference(&quot;Bearer&quot;, doc),
+                    new List&lt;string&gt;()
+                }
+            });
+        });
+
+        return services;
+    }
+}
+</pre>

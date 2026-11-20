@@ -1,0 +1,10 @@
+﻿  current_database  | current_user 
+--------------------+--------------
+ support_tickets_db | postgres
+(1 row)
+
+              ticket_id               | status  | respuestas 
+--------------------------------------+---------+------------
+ 4853f183-d092-44f5-890f-67deabea1166 | cerrado |          1
+(1 row)
+

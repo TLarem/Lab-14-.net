@@ -1,0 +1,78 @@
+<!doctype html><meta charset="utf-8"><style>body{margin:36px;font:22px Segoe UI;background:#fff;color:#172434}h1{font-size:30px;color:#126a8e}h2{font-size:23px}pre{white-space:pre-wrap;word-break:break-word;font:18px Consolas;background:#f3f6f8;padding:20px;border:1px solid #ccd5de}small{color:#53687b}</style><h1>Tickets, respuestas y cierre - persistencia real</h1><small>Lab10-LukasMelgar | Evidencia del proyecto y resultados reales</small><p>Respuestas HTTP registradas durante la prueba contra support_tickets_db. El token se omite.</p><pre>[
+  {
+    &quot;method&quot;: &quot;POST&quot;,
+    &quot;path&quot;: &quot;/api/tickets&quot;,
+    &quot;status&quot;: 201,
+    &quot;response&quot;: {
+      &quot;ticketId&quot;: &quot;4853f183-d092-44f5-890f-67deabea1166&quot;,
+      &quot;userId&quot;: &quot;f7a58440-8118-4bd0-af0e-05a9be5ecfdc&quot;,
+      &quot;username&quot;: &quot;lukas_lab10_7e179fd5&quot;,
+      &quot;title&quot;: &quot;Verificacion Lab 10 - Lukas Melgar&quot;,
+      &quot;description&quot;: &quot;Prueba de persistencia PostgreSQL y autenticacion JWT&quot;,
+      &quot;status&quot;: &quot;abierto&quot;,
+      &quot;createdAt&quot;: &quot;2026-10-23T14:58:19.3932391&quot;,
+      &quot;closedAt&quot;: null,
+      &quot;responseCount&quot;: 0
+    }
+  },
+  {
+    &quot;method&quot;: &quot;GET&quot;,
+    &quot;path&quot;: &quot;/api/tickets/4853f183-d092-44f5-890f-67deabea1166&quot;,
+    &quot;status&quot;: 200,
+    &quot;response&quot;: {
+      &quot;ticketId&quot;: &quot;4853f183-d092-44f5-890f-67deabea1166&quot;,
+      &quot;userId&quot;: &quot;f7a58440-8118-4bd0-af0e-05a9be5ecfdc&quot;,
+      &quot;username&quot;: &quot;lukas_lab10_7e179fd5&quot;,
+      &quot;title&quot;: &quot;Verificacion Lab 10 - Lukas Melgar&quot;,
+      &quot;description&quot;: &quot;Prueba de persistencia PostgreSQL y autenticacion JWT&quot;,
+      &quot;status&quot;: &quot;abierto&quot;,
+      &quot;createdAt&quot;: &quot;2026-10-23T14:58:19.393239&quot;,
+      &quot;closedAt&quot;: null,
+      &quot;responseCount&quot;: 0
+    }
+  },
+  {
+    &quot;method&quot;: &quot;POST&quot;,
+    &quot;path&quot;: &quot;/api/responses&quot;,
+    &quot;status&quot;: 201,
+    &quot;response&quot;: {
+      &quot;responseId&quot;: &quot;f8e74ef6-06e8-4ac6-a305-d21abe96b50b&quot;,
+      &quot;ticketId&quot;: &quot;4853f183-d092-44f5-890f-67deabea1166&quot;,
+      &quot;responderId&quot;: &quot;f7a58440-8118-4bd0-af0e-05a9be5ecfdc&quot;,
+      &quot;responderUsername&quot;: &quot;lukas_lab10_7e179fd5&quot;,
+      &quot;message&quot;: &quot;Conexion y repositorios verificados.&quot;,
+      &quot;createdAt&quot;: &quot;2026-10-23T14:58:19.4836838&quot;
+    }
+  },
+  {
+    &quot;method&quot;: &quot;GET&quot;,
+    &quot;path&quot;: &quot;/api/responses/ticket/4853f183-d092-44f5-890f-67deabea1166&quot;,
+    &quot;status&quot;: 200,
+    &quot;response&quot;: [
+      {
+        &quot;responseId&quot;: &quot;f8e74ef6-06e8-4ac6-a305-d21abe96b50b&quot;,
+        &quot;ticketId&quot;: &quot;4853f183-d092-44f5-890f-67deabea1166&quot;,
+        &quot;responderId&quot;: &quot;f7a58440-8118-4bd0-af0e-05a9be5ecfdc&quot;,
+        &quot;responderUsername&quot;: &quot;lukas_lab10_7e179fd5&quot;,
+        &quot;message&quot;: &quot;Conexion y repositorios verificados.&quot;,
+        &quot;createdAt&quot;: &quot;2026-10-23T14:58:19.483683&quot;
+      }
+    ]
+  },
+  {
+    &quot;method&quot;: &quot;PATCH&quot;,
+    &quot;path&quot;: &quot;/api/tickets/4853f183-d092-44f5-890f-67deabea1166/status&quot;,
+    &quot;status&quot;: 200,
+    &quot;response&quot;: {
+      &quot;ticketId&quot;: &quot;4853f183-d092-44f5-890f-67deabea1166&quot;,
+      &quot;userId&quot;: &quot;f7a58440-8118-4bd0-af0e-05a9be5ecfdc&quot;,
+      &quot;username&quot;: &quot;lukas_lab10_7e179fd5&quot;,
+      &quot;title&quot;: &quot;Verificacion Lab 10 - Lukas Melgar&quot;,
+      &quot;description&quot;: &quot;Prueba de persistencia PostgreSQL y autenticacion JWT&quot;,
+      &quot;status&quot;: &quot;cerrado&quot;,
+      &quot;createdAt&quot;: &quot;2026-10-23T14:58:19.393239&quot;,
+      &quot;closedAt&quot;: &quot;2026-10-23T14:58:19.5601974&quot;,
+      &quot;responseCount&quot;: 1
+    }
+  }
+]</pre>

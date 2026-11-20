@@ -1,0 +1,30 @@
+<!doctype html><meta charset="utf-8"><style>body{margin:36px;font:22px Segoe UI;background:#fff;color:#172434}h1{font-size:30px;color:#126a8e}h2{font-size:23px}pre{white-space:pre-wrap;word-break:break-word;font:18px Consolas;background:#f3f6f8;padding:20px;border:1px solid #ccd5de}small{color:#53687b}</style><h1>Registro y autenticacion JWT</h1><small>Lab10-LukasMelgar | Evidencia del proyecto y resultados reales</small><p>Respuestas HTTP registradas durante la prueba contra support_tickets_db. El token se omite.</p><pre>[
+  {
+    &quot;method&quot;: &quot;POST&quot;,
+    &quot;path&quot;: &quot;/api/auth/register&quot;,
+    &quot;status&quot;: 201,
+    &quot;response&quot;: {
+      &quot;userId&quot;: &quot;f7a58440-8118-4bd0-af0e-05a9be5ecfdc&quot;,
+      &quot;username&quot;: &quot;lukas_lab10_7e179fd5&quot;,
+      &quot;email&quot;: &quot;lukas_lab10_7e179fd5@example.com&quot;,
+      &quot;createdAt&quot;: &quot;2026-10-23T14:58:18.9570978&quot;,
+      &quot;roles&quot;: []
+    }
+  },
+  {
+    &quot;method&quot;: &quot;POST&quot;,
+    &quot;path&quot;: &quot;/api/auth/login&quot;,
+    &quot;status&quot;: 200,
+    &quot;response&quot;: {
+      &quot;userId&quot;: &quot;f7a58440-8118-4bd0-af0e-05a9be5ecfdc&quot;,
+      &quot;username&quot;: &quot;lukas_lab10_7e179fd5&quot;,
+      &quot;email&quot;: &quot;lukas_lab10_7e179fd5@example.com&quot;,
+      &quot;roles&quot;: []
+    }
+  },
+  {
+    &quot;method&quot;: &quot;GET&quot;,
+    &quot;path&quot;: &quot;/api/tickets (sin token)&quot;,
+    &quot;status&quot;: 401
+  }
+]</pre>

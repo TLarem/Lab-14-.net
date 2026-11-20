@@ -1,0 +1,40 @@
+<!doctype html><meta charset="utf-8"><style>body{margin:36px;font:22px Segoe UI;background:#fff;color:#172434}h1{font-size:30px;color:#126a8e}h2{font-size:23px}pre{white-space:pre-wrap;word-break:break-word;font:18px Consolas;background:#f3f6f8;padding:20px;border:1px solid #ccd5de}small{color:#53687b}</style><h1>Configuracion de PostgreSQL y repositorios</h1><small>Lab10-LukasMelgar | Evidencia del proyecto y resultados reales</small><h2>Lab10-LukasMelgar.Infrastructure/Configuration/InfrastructureServicesExtensions.cs</h2><pre>using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Lab10_LukasMelgar.Application.Port.Services;
+using Lab10_LukasMelgar.Domain.Port.Repositories;
+using Lab10_LukasMelgar.Infrastructure.Adapters.Repositories.Implementation;
+using Lab10_LukasMelgar.Infrastructure.Adapters.Services.Implementation;
+using Lab10_LukasMelgar.Infrastructure.Persistence;
+
+namespace Lab10_LukasMelgar.Infrastructure.Configuration;
+
+public static class InfrastructureServicesExtensions
+{
+    public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
+    {
+        // Registro de PostgreSQL siguiendo el ejemplo de la guia del Lab 10.
+        services.AddDbContext&lt;TicketeraDbContext&gt;((serviceProvider, options) =&gt;
+        {
+            var connectionString = configuration.GetConnectionString(&quot;DefaultConnection&quot;);
+            options.UseNpgsql(connectionString);
+        });
+
+        services.Configure&lt;JwtSettings&gt;(configuration.GetSection(&quot;Jwt&quot;));
+
+        services.AddScoped(typeof(IGenericRepository&lt;&gt;), typeof(GenericRepository&lt;&gt;));
+        services.AddScoped&lt;IUserRepository, UserRepository&gt;();
+        services.AddScoped&lt;IRoleRepository, RoleRepository&gt;();
+        services.AddScoped&lt;IUserRoleRepository, UserRoleRepository&gt;();
+        services.AddScoped&lt;ITicketRepository, TicketRepository&gt;();
+        services.AddScoped&lt;IResponseRepository, ResponseRepository&gt;();
+        services.AddScoped&lt;IUnitOfWork, UnitOfWork&gt;();
+
+        services.AddScoped&lt;IPasswordService, PasswordService&gt;();
+        services.AddScoped&lt;ITokenService, TokenService&gt;();
+        services.AddScoped&lt;IAuthService, AuthService&gt;();
+
+        return services;
+    }
+}
+</pre>

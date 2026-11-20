@@ -1,0 +1,30 @@
+<!doctype html><meta charset="utf-8"><style>body{margin:32px;font:22px Segoe UI;color:#172434}h1{font-size:30px;color:#126a8e}pre{white-space:pre-wrap;word-break:break-word;font:19px Consolas;background:#f3f6f8;padding:20px}</style><h1>PostgreSQL y compilacion</h1><p>Lab10-LukasMelgar | Resultados reales de la verificacion</p><pre>  current_database  | current_user 
+--------------------+--------------
+ support_tickets_db | postgres
+(1 row)
+
+              ticket_id               | status  | respuestas 
+--------------------------------------+---------+------------
+ 4853f183-d092-44f5-890f-67deabea1166 | cerrado |          1
+(1 row)
+
+
+
+Comando: dotnet build --artifacts-path &lt;carpeta temporal&gt; -p:NuGetAudit=false
+taurado C:\Users\Tecsup\Downloads\Lab10-LukasMelgar\Lab10-LukasMelgar.Domain\Lab10-LukasMelgar.Domain.csproj (en 72 ms).
+  Se ha restaurado C:\Users\Tecsup\Downloads\Lab10-LukasMelgar\Lab10-LukasMelgar.Infrastructure\Lab10-LukasMelgar.Infrastructure.csproj (en 155 ms).
+  Se ha restaurado C:\Users\Tecsup\Downloads\Lab10-LukasMelgar\Lab10-LukasMelgar.Api\Lab10-LukasMelgar.Api.csproj (en 155 ms).
+  Lab10-LukasMelgar.Domain -&gt; C:\Users\Tecsup\Downloads\_lab10_build_evidencia\bin\Lab10-LukasMelgar.Domain\debug\Lab10-LukasMelgar.Domain.dll
+  Lab10-LukasMelgar.Application -&gt; C:\Users\Tecsup\Downloads\_lab10_build_evidencia\bin\Lab10-LukasMelgar.Application\debug\Lab10-LukasMelgar.Application.dll
+  Lab10-LukasMelgar.Infrastructure -&gt; C:\Users\Tecsup\Downloads\_lab10_build_evidencia\bin\Lab10-LukasMelgar.Infrastructure\debug\Lab10-LukasMelgar.Infrastructure.dll
+  Lab10-LukasMelgar.Api -&gt; C:\Users\Tecsup\Downloads\_lab10_build_evidencia\bin\Lab10-LukasMelgar.Api\debug\Lab10-LukasMelgar.Api.dll
+
+
+\bin\Lab10-LukasMelgar.Api\debug\Lab10-LukasMelgar.Api.dll
+
+Compilación correcta.
+    0 Advertencia(s)
+    0 Errores
+
+Tiempo transcurrido 00:00:02.08
+</pre>

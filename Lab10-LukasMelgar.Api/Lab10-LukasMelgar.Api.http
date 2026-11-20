@@ -1,0 +1,71 @@
+@HostAddress = http://localhost:5236
+@Token = Bearer YOUR_TOKEN_HERE
+
+###
+POST {{HostAddress}}/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "usuario1",
+  "password": "Password123!",
+  "email": "usuario1@test.com"
+}
+
+###
+POST {{HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "usuario1",
+  "password": "Password123!"
+}
+
+###
+GET {{HostAddress}}/api/users
+Authorization: {{Token}}
+
+###
+POST {{HostAddress}}/api/roles
+Authorization: {{Token}}
+Content-Type: application/json
+
+{
+  "roleName": "soporte"
+}
+
+###
+GET {{HostAddress}}/api/roles
+Authorization: {{Token}}
+
+###
+POST {{HostAddress}}/api/tickets
+Authorization: {{Token}}
+Content-Type: application/json
+
+{
+  "title": "Problema con el acceso al sistema",
+  "description": "No puedo ingresar a mi panel principal después de la actualización."
+}
+
+###
+GET {{HostAddress}}/api/tickets
+Authorization: {{Token}}
+
+###
+POST {{HostAddress}}/api/responses
+Authorization: {{Token}}
+Content-Type: application/json
+
+{
+  "ticketId": "REPLACE_WITH_TICKET_ID",
+  "message": "Estamos revisando el incidente reportado."
+}
+
+###
+PATCH {{HostAddress}}/api/tickets/REPLACE_WITH_TICKET_ID/status
+Authorization: {{Token}}
+Content-Type: application/json
+
+{
+  "status": "cerrado"
+}

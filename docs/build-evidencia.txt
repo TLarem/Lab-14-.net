@@ -1,0 +1,15 @@
+﻿  Determinando los proyectos que se van a restaurar...
+  Se ha restaurado C:\Users\Tecsup\Downloads\Lab10-LukasMelgar\Lab10-LukasMelgar.Application\Lab10-LukasMelgar.Application.csproj (en 79 ms).
+  Se ha restaurado C:\Users\Tecsup\Downloads\Lab10-LukasMelgar\Lab10-LukasMelgar.Domain\Lab10-LukasMelgar.Domain.csproj (en 72 ms).
+  Se ha restaurado C:\Users\Tecsup\Downloads\Lab10-LukasMelgar\Lab10-LukasMelgar.Infrastructure\Lab10-LukasMelgar.Infrastructure.csproj (en 155 ms).
+  Se ha restaurado C:\Users\Tecsup\Downloads\Lab10-LukasMelgar\Lab10-LukasMelgar.Api\Lab10-LukasMelgar.Api.csproj (en 155 ms).
+  Lab10-LukasMelgar.Domain -> C:\Users\Tecsup\Downloads\_lab10_build_evidencia\bin\Lab10-LukasMelgar.Domain\debug\Lab10-LukasMelgar.Domain.dll
+  Lab10-LukasMelgar.Application -> C:\Users\Tecsup\Downloads\_lab10_build_evidencia\bin\Lab10-LukasMelgar.Application\debug\Lab10-LukasMelgar.Application.dll
+  Lab10-LukasMelgar.Infrastructure -> C:\Users\Tecsup\Downloads\_lab10_build_evidencia\bin\Lab10-LukasMelgar.Infrastructure\debug\Lab10-LukasMelgar.Infrastructure.dll
+  Lab10-LukasMelgar.Api -> C:\Users\Tecsup\Downloads\_lab10_build_evidencia\bin\Lab10-LukasMelgar.Api\debug\Lab10-LukasMelgar.Api.dll
+
+Compilación correcta.
+    0 Advertencia(s)
+    0 Errores
+
+Tiempo transcurrido 00:00:02.08
